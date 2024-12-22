@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Londrina+Outline&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Sour Gummy", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #50a3a2, #63e3f1, #368faf, #d2f5ff);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+p {
+    text-align: center;
+    text-wrap: wrap;
+    font-size: 20pt;
+    color: white;
+}
+span {
+    text-align: center;
+    text-wrap: wrap;
+    font-size: 15pt;
+    color: white;
+}
+.backFont {
+    margin: 70px 50px 0px 50px;
+}
+.wrapper {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+    gap: 100px;
+  }
+  
+  .col {
+    height: 450px;
+    width: 350px;
+    margin: 20px;
+    perspective: 1000px; 
+    border: 10px solid rgb(255, 255, 255);
+    box-shadow: 0px 0px 40px 0px rgb(255, 255, 255);
+    cursor: pointer;
+  }
+  
+  .front, .back {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .front {
+    z-index: 2;
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+    background: transparent;
+  }
+  
+  .col:hover .front {
+    transform: rotateY(-180deg);
+  }
+  
+  .col:hover .back {
+    transform: rotateY(0deg);
+  }
+  
+  .front img {
+    width: 100%;
+    height: 350px;
+  }
+  
+  .front p, .front span {
+    text-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+  }
+
+  .loop-wrapper {
+    margin: 0 auto;
+    position: absolute;
+    display: block;
+    width: 90%;
+    height: 79%;
+    overflow: hidden;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    z-index: -1;
+  }
+  .mountain {
+    position: absolute;
+    right: -900px;
+    bottom: -20px;
+    width: 2px;
+    height: 2px;
+    box-shadow: 
+      0 0 0 50px #4DB6AC,
+      60px 50px 0 70px #4DB6AC,
+      90px 90px 0 50px #4DB6AC,
+      250px 250px 0 50px #4DB6AC,
+      290px 320px 0 50px #4DB6AC,
+      320px 400px 0 50px #4DB6AC
+      ;
+    transform: rotate(130deg);
+    animation: mtn 20s linear infinite;
+  }
+  .hill {
+    position: absolute;
+    right: -900px;
+    bottom: -50px;
+    width: 400px;
+    border-radius: 50%;
+    height: 20px;
+    box-shadow: 
+      0 0 0 50px #4DB6AC,
+      -20px 0 0 20px #4DB6AC,
+      -90px 0 0 50px #4DB6AC,
+      250px 0 0 50px #4DB6AC,
+      290px 0 0 50px #4DB6AC,
+      620px 0 0 50px #4DB6AC;
+    animation: hill 4s 2s linear infinite;
+  }
+  .tree, .tree:nth-child(2), .tree:nth-child(3) {
+    position: absolute;
+    height: 100px; 
+    width: 35px;
+    bottom: 0;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/tree.svg) no-repeat;
+  }
+  .rock {
+    margin-top: -17%;
+    height: 2%; 
+    width: 2%;
+    bottom: -2px;
+    border-radius: 20px;
+    position: absolute;
+    background: #ddd;
+  }
+  .truck, .wheels {
+    transition: all ease;
+    width: 85px;
+    margin-right: -60px;
+    bottom: 0px;
+    right: 50%;
+    position: absolute;
+    background: #eee;
+  }
+  .truck {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/truck.svg) no-repeat;
+    background-size: contain;
+    height: 60px;
+  }
+  .truck:before {
+    content: " ";
+    position: absolute;
+    width: 25px;
+    box-shadow:
+      -30px 28px 0 1.5px #fff,
+       -35px 18px 0 1.5px #fff;
+  }
+  .wheels {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/wheels.svg) no-repeat;
+    height: 15px;
+    margin-bottom: 0;
+  }
+  
+  .tree  { animation: tree 3s 0.000s linear infinite; }
+  .tree:nth-child(2)  { animation: tree2 2s 0.150s linear infinite; }
+  .tree:nth-child(3)  { animation: tree3 8s 0.050s linear infinite; }
+  .rock  { animation: rock 4s   -0.530s linear infinite; }
+  .truck  { animation: truck 4s   0.080s ease infinite; }
+  .wheels  { animation: truck 4s   0.001s ease infinite; }
+  .truck:before { animation: wind 1.5s   0.000s ease infinite; }
+  
+  
+  @keyframes tree {
+    0%   { transform: translate(1350px); }
+    50% {}
+    100% { transform: translate(-50px); }
+  }
+  @keyframes tree2 {
+    0%   { transform: translate(650px); }
+    50% {}
+    100% { transform: translate(-50px); }
+  }
+  @keyframes tree3 {
+    0%   { transform: translate(2750px); }
+    50% {}
+    100% { transform: translate(-50px); }
+  }
+  
+  @keyframes rock {
+    0%   { right: -200px; }
+    100% { right: 2000px; }
+  }
+  @keyframes truck {
+    0%   { }
+    6%   { transform: translateY(0px); }
+    7%   { transform: translateY(-6px); }
+    9%   { transform: translateY(0px); }
+    10%   { transform: translateY(-1px); }
+    11%   { transform: translateY(0px); }
+    100%   { }
+  }
+  @keyframes wind {
+    0%   {  }
+    50%   { transform: translateY(3px) }
+    100%   { }
+  }
+  @keyframes mtn {
+    100% {
+      transform: translateX(-2000px) rotate(130deg);
+    }
+  }
+  @keyframes hill {
+    100% {
+      transform: translateX(-2000px);
+    }
+  }
+
+  .bg-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .bg-bubbles li {
+    position: absolute;
+    list-style: none;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.15);
+    bottom: -160px;
+    -webkit-animation: square 25s infinite;
+    animation: square 25s infinite;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+  }
+  
+  .bg-bubbles li:nth-child(1) {
+    left: 10%;
+  }
+  
+  .bg-bubbles li:nth-child(2) {
+    left: 20%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 2s;
+    animation-duration: 17s;
+  }
+  
+  .bg-bubbles li:nth-child(3) {
+    left: 25%;
+    animation-delay: 4s;
+  }
+  
+  .bg-bubbles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 22s;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  .bg-bubbles li:nth-child(5) {
+    left: 70%;
+  }
+  
+  .bg-bubbles li:nth-child(6) {
+    left: 80%;
+    width: 120px;
+    height: 120px;
+    animation-delay: 3s;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .bg-bubbles li:nth-child(7) {
+    left: 32%;
+    width: 160px;
+    height: 160px;
+    animation-delay: 7s;
+  }
+  
+  .bg-bubbles li:nth-child(8) {
+    left: 55%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 15s;
+    animation-duration: 40s;
+  }
+  
+  .bg-bubbles li:nth-child(9) {
+    left: 25%;
+    width: 10px;
+    height: 10px;
+    animation-delay: 2s;
+    animation-duration: 40s;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .bg-bubbles li:nth-child(10) {
+    left: 90%;
+    width: 160px;
+    height: 160px;
+    animation-delay: 11s;
+  }
+  
+  @-webkit-keyframes square {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-700px) rotate(600deg);
+    }
+  }
+  
+  @keyframes square {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-700px) rotate(600deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    * {
+        flex-direction: column;
+        align-items: center;
+        text-wrap: wrap;
+    }
+    
+    .loop-wrapper{
+      height: 130%;
+    }
+
+}
+
